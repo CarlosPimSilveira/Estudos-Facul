@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-19</title>
+</head>
+<body>
+	<h1>Cardápio da Lanchonete</h1>
+	<form>
+		<label for="codigo">Código do produto:</label>
+		<input type="text" id="codigo" name="codigo" placeholder="Digite o código do produto"><br>
+		<label for="quantidade">Quantidade:</label>
+		<input type="number" id="quantidade" name="quantidade" min="1" value="1"><br>
+		<button type="button" onclick="calcularValor()">Calcular valor</button>
+	</form>
+
+	<div id="resultado"></div>
+    <script>
+		function calcularValor() {
+			const codigo = document.getElementById("codigo").value;
+			const quantidade = document.getElementById("quantidade").value;
+			let preco = 0;
+
+			switch (codigo) {
+				case "100":
+					preco = 3.0;
+					document.getElementById("resultado").innerHTML = `Cachorro Quente - Valor a pagar: R$ ${preco * quantidade}`;
+					break;
+				case "200":
+					preco = 4.0;
+					document.getElementById("resultado").innerHTML = `Hambúrguer Simples - Valor a pagar: R$ ${preco * quantidade}`;
+					break;
+				case "300":
+					preco = 5.5;
+					document.getElementById("resultado").innerHTML = `Cheeseburguer - Valor a pagar: R$ ${preco * quantidade}`;
+					break;
+				case "400":
+					preco = 7.5;
+					document.getElementById("resultado").innerHTML = `Bauru - Valor a pagar: R$ ${preco * quantidade}`;
+					break;
+				case "500":
+					preco = 3.5;
+					document.getElementById("resultado").innerHTML = `Refrigerante - Valor a pagar: R$ ${preco * quantidade}`;
+					break;
+				case "600":
+					preco = 2.8;
+					document.getElementById("resultado").innerHTML = `Suco - Valor a pagar: R$ ${preco * quantidade}`;
+					break;
+				default:
+					document.getElementById("resultado").innerHTML = "Produto não existente.";
+			}
+		}
+	</script>
+</body>
+</html>

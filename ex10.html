@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-10</title>
+</head>
+<body>
+    <h1>Verificar se um número é divisível por 3</h1>
+	<form>
+		<label for="numero">Digite um número:</label>
+		<input type="number" id="numero" name="numero" required>
+		<button type="button" onclick="verificarDivisibilidade()">Verificar</button>
+	</form>
+    <script>
+		function verificarDivisibilidade() {
+			let numero = document.getElementById("numero").value;
+			if(numero % 3 == 0) {
+				alert("O número é divisível por 3!");
+				return true;
+			} else {
+				alert("O número não é divisível por 3.");
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

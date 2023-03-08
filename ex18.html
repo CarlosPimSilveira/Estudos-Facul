@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-18</title>
+</head>
+<body>
+    <label>Digite um número entre 0 e 10:</label>
+    <input type="number" id="numero">
+    <button onclick="escreverPorExtenso()">Converter</button>
+    <p id="resultado"></p> 
+    <script>
+        function escreverPorExtenso() {
+          const numero = parseInt(document.getElementById("numero").value);
+          let numeroPorExtenso = "";
+          switch(numero) {
+            case 0:
+              numeroPorExtenso = "zero";
+              break;
+            case 1:
+              numeroPorExtenso = "um";
+              break;
+            case 2:
+              numeroPorExtenso = "dois";
+              break;
+            case 3:
+              numeroPorExtenso = "três";
+              break;
+            case 4:
+              numeroPorExtenso = "quatro";
+              break;
+            case 5:
+              numeroPorExtenso = "cinco";
+              break;
+            case 6:
+              numeroPorExtenso = "seis";
+              break;
+            case 7:
+              numeroPorExtenso = "sete";
+              break;
+            case 8:
+              numeroPorExtenso = "oito";
+              break;
+            case 9:
+              numeroPorExtenso = "nove";
+              break;
+            case 10:
+              numeroPorExtenso = "dez";
+              break;
+            default:
+              numeroPorExtenso = "Número fora do intervalo.";
+          }
+          document.getElementById("resultado").innerHTML = numeroPorExtenso;
+        }
+      </script>
+</body>
+</html>

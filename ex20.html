@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-20</title>
+</head>
+<body>
+	<label for="valor">Digite o valor desejado:</label>
+	<input type="number" id="valor">
+
+	<button onclick="contarCedulas()">Contar cédulas</button>
+
+	<p id="resultado"></p>
+    <script>
+		function contarCedulas() {
+			let valor = document.getElementById("valor").value;
+
+			let cedulas100 = Math.floor(valor / 100);
+			valor = valor % 100;
+
+			let cedulas50 = Math.floor(valor / 50);
+			valor = valor % 50;
+
+			let cedulas10 = Math.floor(valor / 10);
+			valor = valor % 10;
+
+			let cedulas5 = Math.floor(valor / 5);
+			valor = valor % 5;
+
+			let cedulas1 = valor;
+
+			let resultado = "";
+			if (cedulas100 > 0) {
+				resultado += cedulas100 + " nota(s) de R$ 100. ";
+			}
+			if (cedulas50 > 0) {
+				resultado += cedulas50 + " nota(s) de R$ 50. ";
+			}
+			if (cedulas10 > 0) {
+				resultado += cedulas10 + " nota(s) de R$ 10. ";
+			}
+			if (cedulas5 > 0) {
+				resultado += cedulas5 + " nota(s) de R$ 5. ";
+			}
+			if (cedulas1 > 0) {
+				resultado += cedulas1 + " nota(s) de R$ 1.";
+			}
+
+			document.getElementById("resultado").textContent = resultado;
+		}
+	</script>
+</body>
+</html>

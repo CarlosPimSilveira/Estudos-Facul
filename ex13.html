@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-13</title>
+</head>
+<body>
+    <label for="input-dia">Digite o número do dia (1 a 7): </label>
+	<input type="number" id="input-dia">
+	<button onclick="verificarDia()">Verificar</button>
+
+	<p id="resultado"></p>
+
+	<script>
+		function verificarDia() {
+			let inputDia = document.getElementById("input-dia").value;
+			let dia = parseInt(inputDia);
+
+			let mensagem = "";
+
+			switch(dia) {
+				case 1:
+				case 7:
+					mensagem = "Fim de semana";
+					break;
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+					mensagem = "Dia útil";
+					break;
+				default:
+					mensagem = "Dia inválido";
+					break;
+			}
+
+			document.getElementById("resultado").innerHTML = mensagem;
+		}
+	</script>  
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-08</title>
+</head>
+<body>
+    <h1>Contagem de Pontos de Pedro</h1>
+
+	<label for="pontuacoes">Digite as pontuações separadas por espaço:</label>
+	<input type="text" id="pontuacoes" name="pontuacoes"><br><br>
+
+	<button onclick="calcularPontos()">Calcular</button><br><br>
+
+	<div id="resultados"></div>
+
+	<script>
+		function calcularPontos() {
+			var pontuacoes = document.getElementById("pontuacoes").value.split(" ").map(Number);
+			var melhorDesempenho = pontuacoes[0];
+			var piorDesempenho = pontuacoes[0];
+			var qtdRecordes = 0;
+			var piorJogo = 1;
+
+			for (var i = 1; i < pontuacoes.length; i++) {
+				if (pontuacoes[i] > melhorDesempenho) {
+					melhorDesempenho = pontuacoes[i];
+					qtdRecordes++;
+				} else if (pontuacoes[i] < piorDesempenho) {
+					piorDesempenho = pontuacoes[i];
+					piorJogo = i + 1;
+				}
+			}
+
+			var resultados = "Número de vezes que bateu recorde: " + qtdRecordes + "<br>";
+			resultados += "Pior jogo: " + piorJogo;
+
+			document.getElementById("resultados").innerHTML = resultados;
+		}
+	</script>
+    </body>
+</html>

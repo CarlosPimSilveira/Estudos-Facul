@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-07</title>
+</head>
+<body>
+    <h1>Fórmula de Bhaskara</h1>
+    <form>
+      <label for="a">a:</label>
+      <input type="number" id="a">
+  
+      <br>
+  
+      <label for="b">b:</label>
+      <input type="number" id="b">
+  
+      <br>
+  
+      <label for="c">c:</label>
+      <input type="number" id="c">
+  
+      <br><br>
+  
+      <button type="button" onclick="calcularBhaskara()">Calcular</button>
+  
+      <br><br>
+  
+      <div id="resultados">
+        <p>O resultado é: <span id="resultado"></span></p>
+      </div>
+    </form>
+  
+    <script>
+      function calcularBhaskara() {
+        var a = parseFloat(document.getElementById("a").value);
+        var b = parseFloat(document.getElementById("b").value);
+        var c = parseFloat(document.getElementById("c").value);
+
+        var delta = Math.pow(b, 2) - 4 * a * c;
+
+        if (delta < 0) {
+          document.getElementById("resultado").textContent = "Delta é negativo";
+        } else {
+          var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+          var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+          document.getElementById("resultado").textContent = "x1 = " + x1 + ", x2 = " + x2;
+        }
+      }
+    </script>   
+</body>
+</html>

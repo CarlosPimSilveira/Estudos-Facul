@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-03</title>
+</head>
+<body>
+    <h1>Calculadora de Potência</h1>
+    <form>
+      <label for="base">Base:</label>
+      <input type="number" id="base">
+  
+      <br>
+  
+      <label for="expoente">Expoente:</label>
+      <input type="number" id="expoente">
+  
+      <br><br>
+  
+      <button type="button" onclick="calcularPotencia()">Calcular</button>
+  
+      <br><br>
+  
+      <div id="resultados">
+        <p>O resultado é: <span id="resultado"></span></p>
+      </div>
+    </form>
+  
+    <script>
+        function potencia(base, expoente) {
+        var resultado = 1;
+        
+        for (var i = 0; i < expoente; i++) {
+            resultado *= base;
+        }
+
+        return resultado;
+        }
+
+      function calcularPotencia() {
+        var base = parseFloat(document.getElementById("base").value);
+        var expoente = parseFloat(document.getElementById("expoente").value);
+        var resultado = potencia(base, expoente);
+        document.getElementById("resultado").textContent = resultado;
+      }
+    </script>
+</body>
+</html>

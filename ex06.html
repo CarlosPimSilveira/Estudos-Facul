@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-06</title>
+</head>
+<body>
+    <h1>Calculadora de Juros</h1>
+    <form>
+      <label for="capitalInicial">Capital Inicial:</label>
+      <input type="number" id="capitalInicial">
+  
+      <br>
+  
+      <label for="taxaJuros">Taxa de Juros (%):</label>
+      <input type="number" id="taxaJuros">
+  
+      <br>
+
+      <label for="tempoAplicacao">Tempo de Aplicação (em anos):</label>
+      <input type="number" id="tempoAplicacao">
+  
+      <br><br>
+  
+      <button type="button" onclick="calcularJurosSimples()">Calcular Juros Simples</button>
+      <button type="button" onclick="calcularJurosCompostos()">Calcular Juros Compostos</button>
+  
+      <br><br>
+  
+      <div id="resultados">
+        <p>O montante com juros simples é: <span id="montanteJurosSimples"></span></p>
+        <p>O montante com juros compostos é: <span id="montanteJurosCompostos"></span></p>
+      </div>
+    </form>
+  
+    <script>
+        function jurosSimples(capitalInicial, taxaJuros, tempoAplicacao) {
+          var juros = (capitalInicial * taxaJuros * tempoAplicacao) / 100;
+          var montante = capitalInicial + juros;
+
+          return montante;
+        }
+
+        function jurosCompostos(capitalInicial, taxaJuros, tempoAplicacao) {
+          var montante = capitalInicial * Math.pow((1 + taxaJuros/100), tempoAplicacao);
+
+          return montante;
+        }
+
+        function calcularJurosSimples() {
+          var capitalInicial = parseFloat(document.getElementById("capitalInicial").value);
+          var taxaJuros = parseFloat(document.getElementById("taxaJuros").value);
+          var tempoAplicacao = parseFloat(document.getElementById("tempoAplicacao").value);
+
+          var montanteJurosSimples = jurosSimples(capitalInicial, taxaJuros, tempoAplicacao);
+          document.getElementById("montanteJurosSimples").textContent = "R$" + montanteJurosSimples.toFixed(2);
+        }
+
+        function calcularJurosCompostos() {
+          var capitalInicial = parseFloat(document.getElementById("capitalInicial").value);
+          var taxaJuros = parseFloat(document.getElementById("taxaJuros").value);
+          var tempoAplicacao = parseFloat(document.getElementById("tempoAplicacao").value);
+
+          var montanteJurosCompostos = jurosCompostos(capitalInicial, taxaJuros, tempoAplicacao);
+          document.getElementById("montanteJurosCompostos").textContent = "R$" + montanteJurosCompostos.toFixed(2);
+        }
+    </script>
+</body>
+</html>

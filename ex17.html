@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-17</title>
+</head>
+<body>
+    <h1>Aumento de salário</h1>
+	<label>Salário atual:</label>
+	<input type="number" id="salarioAtual"><br>
+	<label>Plano de trabalho:</label>
+	<select id="planoTrabalho">
+		<option value="A">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
+	</select><br>
+	<button onclick="calcularAumento()">Calcular</button>
+	<p>Novo salário: R$<span id="novoSalario"></span></p>
+    
+    <script>
+		function calcularAumento() {
+			var salarioAtual = parseFloat(document.getElementById("salarioAtual").value);
+			var planoTrabalho = document.getElementById("planoTrabalho").value;
+			var novoSalario;
+
+			switch (planoTrabalho) {
+			  case "A":
+			    novoSalario = salarioAtual * 1.1;
+			    break;
+			  case "B":
+			    novoSalario = salarioAtual * 1.15;
+			    break;
+			  case "C":
+			    novoSalario = salarioAtual * 1.2;
+			    break;
+			  default:
+			    alert("Plano de trabalho inválido");
+			    return;
+			}
+
+			document.getElementById("novoSalario").innerHTML = novoSalario.toFixed(2);
+		}
+	</script>
+</body>
+</html>
